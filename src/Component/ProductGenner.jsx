@@ -1,3 +1,4 @@
+import { useCart } from "../Context/CartContext";
 export function addToWishlist(productId) {
     console.log('Added to wishlist:', productId);
     // Add wishlist functionality here
@@ -37,16 +38,17 @@ export function showNotification(message) {
     }, 2000);
 }
 
-function addToCart(productId) {
-    console.log('Added to cart:', productId);
-    document.getElementById('cartCount').textContent = parseInt(document.getElementById('cartCount').textContent) + 1;
-    // Add cart functionality here
-    
-    showNotification('Added to cart!');
-}
+
 export function ProductGenner({product,stars})
 {
-    
+    const {  addToCart } = useCart();
+    function addedToCart(productId) {
+        addToCart({ ...product });
+        console.log('Added to cart:', productId);
+        // Add cart functionality here
+        
+        showNotification('Added to cart!');
+}
     const  discountedPrice = product.isSale ? (((product.originalPrice - product.price)/product.originalPrice) * 100).toFixed(1) : 0;
     return (
       <>
@@ -79,7 +81,7 @@ export function ProductGenner({product,stars})
                                     </div>
 
                                     <div className="add-to-cart-overlay">
-                                        <button className="add-to-cart-btn" onClick={() => { addToCart(product.id); }} title="Add to Cart">
+                                        <button className="add-to-cart-btn" onClick={() => { addedToCart(product.id); }} title="Add to Cart">
                                             <i className="fas fa-shopping-cart"></i>
                                             Add to Cart
                                         </button>

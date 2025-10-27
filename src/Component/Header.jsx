@@ -5,7 +5,7 @@ export function Header() {
     console.log('Cart items in Header:', cart);
     const handleCartClick = () => {
         // chuyển hướng tới trang cart
-        window.location.href = '/cart';
+        window.location.href = '/cartpage';
     };
     const handleUserClick = () => {
         // chuyển hướng tới trang login
@@ -13,7 +13,6 @@ export function Header() {
     }
     
     return(
-
         <>
         <header className="header">
         <div className="container">

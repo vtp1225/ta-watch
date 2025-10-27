@@ -59,7 +59,7 @@ body {
 .welcome h2 {
   font-size: 1.4rem;
   margin-bottom: 0.3rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font-family: "Bitcount Grid Single", system-ui;
   font-optical-sizing: auto;
   font-weight: 700;

@@ -222,7 +222,7 @@
     "cart": {
       "items": [
         {
-          "productId": "1",
+          "id": "1",
           "code": "TM001",
           "name": "Classic Chronograph Elite",
           "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
@@ -231,7 +231,7 @@
           "subtotal": 2499       
         },
         {
-          "productId": "4",
+          "id": "4",
           "code": "TT004",
           "name": "Smart Connect Pro",
           "image": "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080",
