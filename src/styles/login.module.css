@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+
+}
+
+.container {
+  text-align: center;
+  flex: 1;
+  margin-right: 20px;
+    min-height: 500px;
+
+}
+.card {
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.2); /* nền trắng mờ */
+  border-radius: 12px;
+  padding: 32px 40px;
+  min-width: 600px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px); /* làm mờ nền phía sau */
+  -webkit-backdrop-filter: blur(10px); /* cho Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* viền nhẹ */
+  margin: 10px 0;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+.logoImg {
+    width: 100px;
+    height: auto;
+}
+.logoCircle {
+  background: #0a0a23;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+}
+
+.subtitle {
+  color: #000000;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+.welcome h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: rgb(255, 255, 255);
+  font-family: "Bitcount Grid Single", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 50px;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
+.welcome p {
+  color: #000000;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabs {
+
+  display: flex;
+  justify-content: space-between;
+  background: #f3f3f8;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 800;
+}
+
+.tab.active {
+  background: rgb(146, 188, 192);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  text-align: left;
+  color: #fffcfc;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+  color: #2c1717;
+}
+.nameFields {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+form input[type="email"], 
+form input[type="password"],
+form input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordField .eye {
+  position: absolute;
+  right: 10px;
+  top: 9px;
+  cursor: pointer;
+  color: #777;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.options .forgot {
+  color: #4a4aff;
+  text-decoration: none;
+}
+
+.signinBtn {
+  width: 100%;
+  background: #0a0a23;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 5px;
+}
+
+.signinBtn:hover {
+  background: #1b1b3a;
+}
+
+footer {
+  color: #888;
+  font-size: 0.8rem;
+}
+.content
+{
+    background: #070c14;
+  min-height: 500px;
+
+  background-image: url('../public/backgroundsang.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.imgContent
+{
+    flex: 1;
+    min-height: 500px;
+    box-sizing: border-box;
+    border-radius:50px;
+    width: auto;
+    overflow: hidden;
+
+
+}
+.rightContent
+{
+    flex: 1;
+    overflow: hidden;
+ /* đẩy ảnh lấn ra khỏi trang */
+
+
+}
+.leftContent
+{
+    flex: 1;
+    overflow: hidden;
+}
