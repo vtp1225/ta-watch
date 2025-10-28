@@ -9,7 +9,7 @@ export function ProductsHome() {
     const [currentBrand, setCurrentBrand] = useState('all');
     const [currentCategory, setCurrentCategory] = useState('all');
     const [displayedCount, setDisplayedCount] = useState(6);
-    console.log('Products in ProductsHome:', products);
+
     useEffect(() => {
         setFilteredProducts(products);
     }, [products]);
@@ -115,7 +115,6 @@ export function ProductsHome() {
 
                     <div className="product-grid" id="productGrid">
                         {
-                            console.log('Filtered Products:', filteredProducts)}{
                             filteredProducts.length === 0 ? (
                                 <p>No products found.</p>
                             ) : (

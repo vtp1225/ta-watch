@@ -1,9 +1,8 @@
 {
-  "watches":
-{
-  "code": 200,
-  "message": "Thành công",
-  "data": [
+  "watches": {
+    "code": 200,
+    "message": "Thành công",
+    "data": [
       {
         "id": "1",
         "code": "TM001",
@@ -214,39 +213,55 @@
       }
     ]
   },
-  "cart":
-  {
-  "code": 200,
-  "message": "Thành công",
-  "data": {
+  "cart": {
     "cart": {
       "items": [
         {
-          "id": "1",
-          "code": "TM001",
-          "name": "Classic Chronograph Elite",
-          "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
-          "price": 2499,
-          "quantity": 1,
-          "subtotal": 2499       
+          "id": "3",
+          "name": "Elegant Heritage Collection",
+          "brand": "LuxuryTime",
+          "price": 3999,
+          "image": "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080",
+          "quantity": 3
         },
         {
-          "id": "4",
-          "code": "TT004",
-          "name": "Smart Connect Pro",
-          "image": "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080",
-          "price": 799,
-          "quantity": 2,
-          "subtotal": 1598
+          "id": "5",
+          "name": "Vintage Leather Classic",
+          "brand": "Heritage",
+          "price": 1899,
+          "image": "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080",
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Sport Performance Pro",
+          "brand": "ActiveTime",
+          "price": 1299,
+          "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
+          "quantity": 5
         }
       ],
-      "totalQuantity": 3,        
-      "totalPrice": 4097,        
-      "createdAt": "2025-10-24T17:00:00",
-      "updatedAt": "2025-10-24T17:05:00"
+      "totalQuantity": 9,
+      "totalPrice": 20391,
+      "updatedAt": "2025-10-28T06:36:26.161Z"
     }
+  },
+  "users": {
+    "users": [
+      {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@example.com",
+        "password": "admin123",
+        "role": "admin"
+      },
+      {
+        "id": 2,
+        "username": "user",
+        "email": "user@example.com",
+        "password": "user123",
+        "role": "user"
+      }
+    ]
   }
 }
-
-}
-

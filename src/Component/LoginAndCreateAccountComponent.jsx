@@ -1,5 +1,6 @@
 
 import React from "react";
+import axiosClient from "../../api/axiosApi";
 import styles from "../styles/login.module.css";
 export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
     function handleTabClick(event) {
@@ -13,7 +14,8 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
         } else {
             setIsLogin(false);
         }
-        
+    }
+    function handleSubmit(event) {
     }
     return (
         <>
@@ -45,7 +47,6 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
                                 handleTabClick(e)}>Login</button>
                             <button className={`${styles.tab} ${!isLogin ? styles.active : ""}`} onClick={(event) => handleTabClick(event)}>Create Account</button>
                         </div>
-                        {/* Login Form */}
                         {isLogin ? (
                             <form>
                                 <label>Email</label>
@@ -65,35 +66,32 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
                             <button type="submit" className={styles.signinBtn}>Sign In</button>
                         </form>
                         ) : (
-                            // Create Account Form
-                            <form className={styles.createAccountForm}>
+                            <form method="POST" action="http://localhost:3000/users" className={styles.createAccountForm}>
                                 <div className={styles.nameFields}>
                                     <label>First Name</label>
-                                    <input type="text" placeholder="John" required />
+                                    <input name="firstname" type="text" placeholder="John" required />
                                     <label>Last Name</label>
-                                    <input type="text" placeholder="Doe" required />
+                                    <input name="lastname" type="text" placeholder="Doe" required />
                                 </div>
 
                                 <label>Email</label>
-                                <input type="email" placeholder="you@example.com" required />
+                                <input name="email" type="email" placeholder="you@example.com" required />
 
                             <label>Password</label>
                             <div className={styles.passwordField}>
-                                <input type="password" placeholder="••••••••" required />
+                                <input name="password" type="password" placeholder="••••••••" required />
                                 <span className={styles.eye}>👁</span>
                             </div>
                             <label>Confirm Password</label>
                             <div className={styles.passwordField}>
-                                <input type="password" placeholder="••••••••" required />
+                                <input name="confirmPassword" type="password" placeholder="••••••••" required />
                                 <span className={styles.eye}>👁</span>
                             </div>
-                            
-                            <div className={styles.options}>
-                                <label><input type="checkbox" /> Remember me</label>
-                                <a href="#" className={styles.forgot}>Forgot password?</a>
-                            </div>
+               
 
-                            <button type="submit" className={styles.signinBtn}>Sign In</button>
+                            <button type="submit" onClick={(e) => {
+                                handleSubmit(e);
+                            }} className={`${styles.signinBtn} createAccountBtn`}>Submit</button>
                         </form>
                         )}
 

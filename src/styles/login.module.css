@@ -168,6 +168,7 @@ form input[type="text"] {
   cursor: pointer;
   transition: 0.3s;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .signinBtn:hover {

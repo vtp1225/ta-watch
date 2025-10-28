@@ -1,46 +1,43 @@
 import { createContext, useContext } from "react";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosClient from "../../api/axiosApi";
 export const CartContext = createContext(null);
 export function CartProvider({ children }) {
     const [cart, setCart] = useState({ items: [], totalQuantity: 0, totalPrice: 0 });
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/cart');
-
-                setCart(res.data.data.cart);
-                console.log('Fetched cart:', res.data);
+                const res = await axiosClient.get('/cart');
+                setCart(res.data.cart);
             } catch (err) {
                 console.error('Failed to fetch cart:', err);
             }
         };
         fetchCart();
     }, []);
-    function addToCart(product) {
-        setCart(prevCart => {
-            const existingItem = prevCart.items.find(item => item.id === product.id);
-            let updatedItems;
+    async function addToCart(product) {
+      try {
+        const res = await axiosClient.get('/cart');
+        const existingCart = res.data.cart;
+        const items = [...existingCart.items];
+        const productInCart = items.find(item => item.id === product.id);
+        if (productInCart) {
+          productInCart.quantity += 1;
+        } else {
+          const newProduct = {id: product.id, name: product.name, brand: product.brand, price: product.price, image: product.image, quantity: 1};
+          items.push(newProduct);
+        }
+        console.log('Updated items:', items);
+        const totalQuantity = items.reduce((acc, item) => acc + item.quantity, 0);
+        const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        const updatedAt = new Date().toISOString();
+        const updatedCart = { items, totalQuantity, totalPrice, updatedAt };
 
-            if (existingItem) {
-                updatedItems = prevCart.items.map(item =>
-                    item.id === product.id
-                        ? { ...item, quantity: item.quantity + 1, subtotal: item.subtotal + product.price }
-                        : item
-                );
-            } else {
-                updatedItems = [...prevCart.items, { ...product, quantity: 1, subtotal: product.price }];
-            }
-
-            const updatedCart = {
-                items: updatedItems,
-                totalQuantity: prevCart.totalQuantity + 1,
-                totalPrice: prevCart.totalPrice + product.price
-            };
-
-            console.log('Updated cart:', updatedCart);
-            return updatedCart;
-        });
+        await axiosClient.put("/cart", { cart: updatedCart });
+        setCart(updatedCart);
+      } catch (error) {
+        console.error('Failed to add item to cart:', error);
+      }
     }
 
     return (

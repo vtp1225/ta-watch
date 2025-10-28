@@ -3,12 +3,15 @@ export function Cart() {
         const {cart} = useCart();
         return (
             <>
+            <div className="cart-header">
+            <h2><i className="fas fa-shopping-cart"></i> Giỏ hàng của bạn</h2></div>
+
             {cart.items.length === 0 ? (  
                 <div key={0} id="cartItems">
                     <div className="empty-cart">
                         <i className="fas fa-shopping-cart"></i>
-                        <p>Your cart is empty</p>
-                        <p>Add some watches to get started!</p>
+                        <p>Giỏ hàng của bạn đang trống</p>
+                        <p>Thêm một số đồng hồ để bắt đầu!</p>
                     </div>
                     </div>) : (
                     <div className="cart-items">

@@ -12,7 +12,6 @@ function App() {
       <CartProvider>
         <Routes>
           <Route path='/' element={<Home />} />
-        
           <Route path='/login' element={<LoginRegister />} />
           <Route path='/cartpage' element={<CartPage />} />
         </Routes>

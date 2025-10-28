@@ -9,8 +9,7 @@ export function addedButtonEffect(button) {
     button.classList.add('product-action-btn-clicked');
 }
 export function quickView(productId) {
-    console.log('Quick view:', productId);
-    // Add quick view functionality here
+    console.log('Quick view for product ID:', productId);
     showNotification('Quick view feature coming soon!');
 }
 export function showNotification(message) {

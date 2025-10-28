@@ -908,9 +908,20 @@ p {
     gap: 1rem;
     justify-content: flex-end;
 }
+.cart-header{
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.cart-items{
+    padding: 0rem 1.5rem;
 
+}
 .cart-item {
     display: flex;
+    font-size: 15pt;
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
@@ -922,8 +933,8 @@ p {
 }
 
 .cart-item-image {
-    width: 60px;
-    height: 60px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 0.25rem;
 }
