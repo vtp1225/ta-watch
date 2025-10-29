@@ -16,6 +16,20 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
         }
     }
     function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target.closest("form");
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        axiosClient.post("/users", data)
+            .then((response) => {
+                console.log("Account created successfully:", response.data);
+                alert("Account created successfully!");
+                setIsLogin(true);
+            })
+            .catch((error) => {
+                console.error("Error creating account:", error);
+                alert("Error creating account. Please try again.");
+            });
     }
     return (
         <>
@@ -66,7 +80,7 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
                             <button type="submit" className={styles.signinBtn}>Sign In</button>
                         </form>
                         ) : (
-                            <form method="POST" action="http://localhost:3000/users" className={styles.createAccountForm}>
+                            <form  className={styles.createAccountForm}>
                                 <div className={styles.nameFields}>
                                     <label>First Name</label>
                                     <input name="firstname" type="text" placeholder="John" required />

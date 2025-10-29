@@ -1,6 +1,8 @@
+
 import { useCart } from "../Context/CartContext";
 export function Cart() {
-        const {cart} = useCart();
+        const {cart,updatedcart,deleteCart} = useCart();   
+
         return (
             <>
             <div className="cart-header">
@@ -24,11 +26,11 @@ export function Cart() {
                                     <div className="cart-item-price">{item.price.toLocaleString()}</div>
                                 </div>
                                 <div className="cart-item-actions">
-                                    <button className="quantity-btn" onClick={() => {}}>-</button>
-                                    <input type="number" className="quantity-input" value={item.quantity} 
-                                        onChange={() => {}} min="1" />
-                                    <button className="quantity-btn" onClick={() => {}}>+</button>
-                                    <button className="remove-item-btn" onClick={() => {}} title="Remove item">
+                                    <button className="quantity-btn" onClick={() => updatedcart(item.id, item.quantity - 1)}>-</button>
+                                    <input type="number" className="quantity-input" value={item.quantity}
+                                        onChange={(e) => updatedcart(item.id, parseInt(e.target.value) || 0)} min="1" />
+                                    <button className="quantity-btn" onClick={() => updatedcart(item.id, item.quantity + 1)}>+</button>
+                                    <button className="remove-item-btn" onClick={() => deleteCart(item.id)} title="Remove item">
                                         <i className="fas fa-trash"></i>
                                     </button>
                                 </div>

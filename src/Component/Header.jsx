@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../Context/CartContext";
 export function Header() {
     const { cart } = useCart();
-    console.log('Cart in Header:', cart);
+    console.log("cart in header",cart)
     const handleCartClick = () => {
         // chuyển hướng tới trang cart
         window.location.href = '/cartpage';
@@ -45,7 +45,7 @@ export function Header() {
                     </button>
                     <button className="action-btn cart-btn" id="cartBtn" onClick={handleCartClick}>
                         <i className="fas fa-shopping-cart"></i>
-                        <span className="cart-count" id="cartCount" >{cart.totalQuantity}</span>
+                        <span className="cart-count" id="cartCount" >{cart.items.length > 0 ? cart.items.reduce((acc, item) => acc + item.quantity, 0) : 0}</span>
                     </button>
                     <button className="mobile-menu-btn" id="mobileMenuBtn">s
                         <i className="fas fa-bars"></i>

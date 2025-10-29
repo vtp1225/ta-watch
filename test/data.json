@@ -214,37 +214,34 @@
     ]
   },
   "cart": {
-    "cart": {
-      "items": [
-        {
-          "id": "3",
-          "name": "Elegant Heritage Collection",
-          "brand": "LuxuryTime",
-          "price": 3999,
-          "image": "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080",
-          "quantity": 3
-        },
-        {
-          "id": "5",
-          "name": "Vintage Leather Classic",
-          "brand": "Heritage",
-          "price": 1899,
-          "image": "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080",
-          "quantity": 1
-        },
-        {
-          "id": "2",
-          "name": "Sport Performance Pro",
-          "brand": "ActiveTime",
-          "price": 1299,
-          "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
-          "quantity": 5
-        }
-      ],
-      "totalQuantity": 9,
-      "totalPrice": 20391,
-      "updatedAt": "2025-10-28T06:36:26.161Z"
-    }
+    "items": [
+      {
+        "id": "2",
+        "name": "Sport Performance Pro",
+        "brand": "ActiveTime",
+        "price": 1299,
+        "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
+        "quantity": 10
+      },
+      {
+        "id": "1",
+        "name": "Classic Chronograph Elite",
+        "brand": "TimeMaster",
+        "price": 2499,
+        "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
+        "quantity": 2
+      },
+      {
+        "id": "4",
+        "name": "Smart Connect Pro",
+        "brand": "TechTime",
+        "price": 799,
+        "image": "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080",
+        "quantity": 1
+      }
+    ],
+    "totalQuantity": 13,
+    "totalPrice": 18787
   },
   "users": {
     "users": [
