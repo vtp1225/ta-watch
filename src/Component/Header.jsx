@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState ,useRef,useEffect} from "react";
+import { MenuItems } from "./MenuItems";
 import { useCart } from "../Context/CartContext";
 export function Header() {
     const { cart } = useCart();
+    const [isOpen,setIsOpen] = useState(false);
     console.log("cart in header",cart)
     const handleCartClick = () => {
         // chuyển hướng tới trang cart
@@ -11,7 +13,19 @@ export function Header() {
         // chuyển hướng tới trang login
         window.location.href = '/login';
     }
-    
+   const currentRef = useRef(null);
+   useEffect(() => {
+        const handleClickOutside = (event) => {   
+            if (currentRef.current && !currentRef.current.contains(event.target)) {
+              setIsOpen(false);
+            }
+       };
+
+       document.addEventListener("mousedown", handleClickOutside);
+       return () => {
+           document.removeEventListener("mousedown", handleClickOutside);
+       };
+   }, []);
     return(
         <>
         <header className="header">
@@ -23,11 +37,34 @@ export function Header() {
 
                 <nav className="nav" id="nav">
                     <ul className="nav-list">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#collections">Collections</a></li>
-                        <li><a href="#brands">Brands</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li href="#home"><a href="#home">Trang Chủ</a></li> 
+                        <li href="#collections"><a href="#collections">Đồng Hồ</a></li>
+                        <li href="#brands"  
+                        onMouseEnter={()=>{setIsOpen(true)}}
+                        onMouseLeave={()=> {setIsOpen(false)}}
+                        ><a style={{color: isOpen ? `#ef4444`: ''}} href="#brands"
+                         ref={currentRef} 
+                         >Thương Hiệu</a>
+                            {isOpen &&
+                            <MenuItems className="menuitems" 
+                                items={[{label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                    {label:"Omega",image:"./logothuonghieu2.png",onClick: "/omega"},
+                                    {label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                    {label:"Omega",image:"./logothuonghieu2.png",onClick: "/omega"},
+                                    {label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                    {label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                    {label:"Rolex",image:"./OrientLogo.png",onClick: "/rolex"},
+                                    {label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                    {label:"Rolex",image:"./OrientLogo.png",onClick: "/rolex"},
+                                     {label:"Rolex",image:"./logo-thuonghieu1.png",onClick: "/rolex"},
+                                      {label:"Rolex",image:"./OrientLogo.png",onClick: "/rolex"}
+                                    
+                                ]} />
+                            }
+                            </li>
+
+                        <li href="#about"><a href="#about">About</a></li>
+                        <li href="#contact"><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
 
@@ -47,7 +84,7 @@ export function Header() {
                         <i className="fas fa-shopping-cart"></i>
                         <span className="cart-count" id="cartCount" >{cart.items.length > 0 ? cart.items.reduce((acc, item) => acc + item.quantity, 0) : 0}</span>
                     </button>
-                    <button className="mobile-menu-btn" id="mobileMenuBtn">s
+                    <button className="mobile-menu-btn" id="mobileMenuBtn">
                         <i className="fas fa-bars"></i>
                     </button>
                 </div>

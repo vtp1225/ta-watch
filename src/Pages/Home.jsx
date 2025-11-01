@@ -7,7 +7,7 @@ import '../styles/globals.css';
 import '../styles/main.css';
 export function Home() {
 
-
+  
     return (
       <>
         <Header />

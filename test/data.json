@@ -221,27 +221,12 @@
         "brand": "ActiveTime",
         "price": 1299,
         "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
-        "quantity": 10
-      },
-      {
-        "id": "1",
-        "name": "Classic Chronograph Elite",
-        "brand": "TimeMaster",
-        "price": 2499,
-        "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
         "quantity": 2
-      },
-      {
-        "id": "4",
-        "name": "Smart Connect Pro",
-        "brand": "TechTime",
-        "price": 799,
-        "image": "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080",
-        "quantity": 1
       }
     ],
-    "totalQuantity": 13,
-    "totalPrice": 18787
+    "totalQuantity": 2,
+    "totalPrice": 2598,
+    "updatedAt": "2025-10-31T12:20:52.776Z"
   },
   "users": {
     "users": [

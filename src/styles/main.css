@@ -29,7 +29,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+  
 }
 
 /* Typography */
@@ -134,19 +134,71 @@ p {
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 2rem;
     margin: 0;
+    position: relative;
+}
+.nav-list li{
+    text-align: center;
+    position: relative;
+    padding: 20px 0;
+    width: 100%;
+    font-weight: bold;
 }
 
-.nav-list a {
+.nav-list li:hover{
+    cursor: pointer;
+}
+
+.nav{
+    position: relative;
+    flex: 2;
+}
+.menuitems {
+    margin-top: 20px;
+    min-width: 600px;
+  position: absolute;
+   background-color: rgba(255, 255, 255, 0.98);
+  left: 0;
+    border-end-end-radius: 10px;
+    border-bottom-left-radius: 10px ;
+}
+.list-menu-items li:hover
+{
+      background-color: #e4e4e5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.list-menu-items
+{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+.list-menu-items li{
+    padding: 5px;
+    min-width: 150px;
+    flex:1;
+    align-items: center;
+    text-align: center;
+   
+
+}
+.list-menu-items li img{
+    height: 60px;
+    width: 80px;
+}
+
+
+.nav-list li a {
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: 700;
+    padding: 20px 0;
     transition: var(--transition);
 }
 
-.nav-list a:hover {
-    color: var(--primary-color);
+.nav-list li a:hover {
+    color: #ef4444;
 }
 
 .search-container {
@@ -229,16 +281,54 @@ p {
 
 /* Hero Section */
 .hero {
-    padding: 4rem 0;
+    padding: 1rem 0;
     background: linear-gradient(135deg, rgba(3, 2, 19, 0.1) 0%, rgba(3, 2, 19, 0.05) 100%);
     min-height: 70vh;
     display: flex;
     align-items: center;
-    background-image: url('/OrientBack.webp');
     background-size: cover;
 
 }
 
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #aaa;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dot.active {
+  background: #111;
+}
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.hero-logo-img{
+    width: 150px;
+}
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -420,7 +510,10 @@ p {
     text-align: center;
     margin-bottom: 3rem;
 }
-
+.header {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+}
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -1072,13 +1165,22 @@ p {
     }
 
     .search-container {
-        display: none;
+        display: flex;
     }
 
     .mobile-menu-btn {
         display: flex;
+        align-items: center;
+        background:none;
+        border: none;
     }
-
+    .mobile-menu-btn:hover {
+        cursor: pointer;
+    }
+    .mobile-menu-btn i {
+        font-size: 1.5rem;
+        color: var(--text-color);
+    }
     .hero {
         padding: 2rem 0;
     }

@@ -7,7 +7,6 @@ export function Cart() {
             <>
             <div className="cart-header">
             <h2><i className="fas fa-shopping-cart"></i> Giỏ hàng của bạn</h2></div>
-
             {cart.items.length === 0 ? (  
                 <div key={0} id="cartItems">
                     <div className="empty-cart">
