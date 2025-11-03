@@ -17,8 +17,8 @@ export function HeroContent() {
     {
         title: <>Khoảnh khắc <br /><span className="text-primary">TRỌN VẸN</span></>,
         desc: "Trải nghiệm đỉnh cao dành cho người đi đầu xu hướng...",
-        img: "./banner3.png",
-        background:"./OrientBack.webp"
+        img: "./casiologo.png",
+        background:"./casioBack.avif"
 
     }
 ];

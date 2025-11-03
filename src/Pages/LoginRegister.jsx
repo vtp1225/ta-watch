@@ -1,6 +1,6 @@
-import { Header } from "../Component/Header";
-import { LoginAndCreateAccountComponent } from "../Component/LoginAndCreateAccountComponent";
-import { Footer } from "../Component/Footer";
+import { Header } from "../Components/Header";
+import { LoginAndCreateAccountComponent } from "../Components/Login/LoginAndCreateAccountComponent";
+import { Footer } from "../Components/Footer";
 import { useState } from "react";
 export function LoginRegister() {
     const [isLogin, setIsLogin] = useState(true);

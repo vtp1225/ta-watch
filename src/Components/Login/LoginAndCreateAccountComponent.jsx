@@ -1,7 +1,7 @@
 
 import React from "react";
-import axiosClient from "../../api/axiosApi";
-import styles from "../styles/login.module.css";
+import axiosClient from "../../../api/axiosApi";
+import styles from "../../styles/login.module.css";
 export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
     function handleTabClick(event) {
         // Logic to switch between Login and Create Account tabs

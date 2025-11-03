@@ -5,24 +5,22 @@
   font-family: "Inter", sans-serif;
 }
 
-body {
-
-}
 
 .container {
   text-align: center;
   flex: 1;
   margin-right: 20px;
     min-height: 500px;
+    padding: 20px;
 
 }
 .card {
   font-size: 18px;
-  background: rgba(255, 255, 255, 0.2); /* nền trắng mờ */
+  background: rgba(255, 255, 255,0.5); /* nền trắng mờ */
   border-radius: 12px;
   padding: 32px 40px;
   min-width: 600px; 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px); /* làm mờ nền phía sau */
   -webkit-backdrop-filter: blur(10px); /* cho Safari */
   border: 1px solid rgba(255, 255, 255, 0.3); /* viền nhẹ */
@@ -50,7 +48,8 @@ body {
 }
 
 .subtitle {
-  color: #000000;
+  display: none;
+  color: #07d5b6;
   font-size: 0.9rem;
   margin-top: 4px;
   font-weight: bold;
@@ -59,7 +58,7 @@ body {
 .welcome h2 {
   font-size: 1.4rem;
   margin-bottom: 0.3rem;
-  color: rgb(0, 0, 0);
+  color: rgb(33, 32, 32);
   font-family: "Bitcount Grid Single", system-ui;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -81,7 +80,7 @@ body {
 
   display: flex;
   justify-content: space-between;
-  background: #f3f3f8;
+  background: #cbcbcb;
   border-radius: 999px;
   margin-bottom: 1.5rem;
 }
@@ -181,11 +180,8 @@ footer {
 }
 .content
 {
-    background: #070c14;
+  background-image: url("./backgroundfinal.jpg");
   min-height: 500px;
-
-  background-image: url('../public/backgroundsang.png');
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
     display: flex;

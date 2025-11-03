@@ -221,12 +221,28 @@
         "brand": "ActiveTime",
         "price": 1299,
         "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
-        "quantity": 2
+        "quantity": 16
+      },
+      {
+        "id": "1",
+        "name": "Classic Chronograph Elite",
+        "brand": "TimeMaster",
+        "price": 2499,
+        "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
+        "quantity": 1
+      },
+      {
+        "id": "3",
+        "name": "Elegant Heritage Collection",
+        "brand": "LuxuryTime",
+        "price": 3999,
+        "image": "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080",
+        "quantity": 1
       }
     ],
-    "totalQuantity": 2,
-    "totalPrice": 2598,
-    "updatedAt": "2025-10-31T12:20:52.776Z"
+    "totalQuantity": 18,
+    "totalPrice": 27282,
+    "updatedAt": "2025-11-01T09:47:18.118Z"
   },
   "users": {
     "users": [

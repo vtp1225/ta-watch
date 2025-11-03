@@ -1,4 +1,5 @@
-import { useCart } from "../Context/CartContext";
+import { useNavigate } from "react-router";
+import { useCart } from "../../Context/CartContext";
 export function addToWishlist(productId) {
     console.log('Added to wishlist:', productId);
     // Add wishlist functionality here
@@ -17,7 +18,7 @@ export function showNotification(message) {
     const notification = document.createElement('div');
     notification.style.cssText = `
         position: fixed;
-        top: 20px;
+        top: 50px;
         right: 20px;
         background: var(--primary-color);
         color: white;
@@ -48,11 +49,12 @@ export function ProductGenner({product,stars})
         
         showNotification('Added to cart!');
 }
+const navigate = useNavigate();
     const  discountedPrice = product.isSale ? (((product.originalPrice - product.price)/product.originalPrice) * 100).toFixed(1) : 0;
     return (
       <>
-      
-      <div key={product.id} className="product-card fade-in">
+
+      <div key={product.id} onClick={() => navigate(`/product/${product.id}`)} className="product-card fade-in">
                                 <div className="product-image-container">
                                     <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
                                 
@@ -65,9 +67,7 @@ export function ProductGenner({product,stars})
                                         <button
                                             className="product-action-btn"
                                             onClick={(e) => {
-                                                // toggle visual effect on the button
                                                 addedButtonEffect(e.currentTarget);
-                                                // perform wishlist logic
                                                 addToWishlist(product.id);
                                             }}
                                             title="Add to Wishlist"

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ProductGenner } from "./ProductGenner.jsx";
-import '../styles/main.css';
-import { useProducts } from "../Context/ProductContext.jsx";
+import '../../styles/main.css';
+import { useProducts } from "../../Context/ProductContext.jsx";
 export function ProductsHome() {
     const { products} = useProducts();
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -76,7 +76,7 @@ export function ProductsHome() {
     return (
         <>
             <section className="products-section" id="collections">
-                <div className="container">
+                <div className="container pdct">
                     <div className="section-header">
                         <h2>Our Collection</h2>
                         <p>Explore our carefully curated selection of premium timepieces from the world's finest watchmakers</p>

@@ -1,8 +1,8 @@
-import { Header } from "../Component/Header.jsx";
-import { HeroContent } from "../Component/HeroContent.jsx";
-import{FeaturedSection} from "../Component/FeaturedSection.jsx";
-import { ProductsHome } from "../Component/ProductsHome.jsx";
-import { Footer } from "../Component/Footer.jsx";
+import { Header } from "../Components/Header.jsx";
+import { HeroContent } from "../Components/HeroContent.jsx";
+import{FeaturedSection} from "../Components/FeaturedSection.jsx";
+import { ProductsHome } from "../Components/Product/ProductsHome.jsx";
+import { Footer } from "../Components/Footer.jsx";
 import '../styles/globals.css';
 import '../styles/main.css';
 export function Home() {

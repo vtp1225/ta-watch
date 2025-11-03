@@ -12,8 +12,12 @@ export const ProductProvider = ({ children }) => {
       .catch(err => console.error('Failed to fetch products:', err));
   }, []);
 
+  const getProductById = (id) => {
+    return products.find(product => product.id === id);
+  };
+
   return (
-    <ProductContext.Provider value={{ products, setProducts }}>
+    <ProductContext.Provider value={{ products, setProducts, getProductById }}>
       {children}
     </ProductContext.Provider>
   );
