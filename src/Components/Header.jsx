@@ -44,7 +44,6 @@ export function Header() {
     return (
         <>
             <header className="header">
-                <div className="container">
                     <div className="header-content">
                         <div className="logo">
                             <a className="logo" href="/"><img className="logo-img" src="/logoPNG.png" alt="TAWatch Logo" /></a>
@@ -57,7 +56,7 @@ export function Header() {
                                 <li href="#brands"
                                     onMouseEnter={() => { setIsOpen(true) }}
                                     onMouseLeave={() => { setIsOpen(false) }}
-                                ><a style={{ color: isOpen ? `#ef4444` : '' }} href="#brands"
+                                ><a style={{ color: isOpen ? `#ffb300` : '' }} href="#brands"
                                     ref={currentRef}
                                 >Thương Hiệu</a>
                                     {isOpen &&
@@ -92,7 +91,7 @@ export function Header() {
                             </button>
                         </div>
                     </div>
-                </div>
+                
             </header>
         </>
     );

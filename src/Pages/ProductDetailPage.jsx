@@ -1,19 +1,21 @@
-import ImageGallery from "../Components/Productdetail/ImageGallery";
-import ProductInfo from "../Components/Productdetail/ProductInfo.jsx";
-import { Header } from "../Components/Header";
-import { Footer } from "../Components/Footer";
+
 import { useParams } from "react-router";
-import { useContext } from "react";
-import { ProductContext } from "../Context/ProductContext.jsx";
+import Gallery from "../Components/Productdetail/Gallery";
+import ProductInfo from "../Components/Productdetail/ProductInfo";
+import { useProducts } from "../Context/ProductContext.jsx";
+import styles from '../styles/productdetail.module.css';
+import { Header } from "../Components/Header.jsx";
+import { Footer } from "../Components/Footer.jsx";
 export default function ProductDetailPage() {
-    const productID = useParams().id;
-    const { getProductById } =  useContext(ProductContext);
-    const product = getProductById(productID);
+    const { id } = useParams();
+    const { getProductById } = useProducts();
+    const product = getProductById(id);
   return (
     <>
     <Header />
-    <div className="product-page">
-      <ImageGallery images={product.images} />
+
+    <div className={styles.page}>
+      <Gallery images={product.images} />
       <ProductInfo product={product} />
     </div>
     <Footer />

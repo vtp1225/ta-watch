@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 export function HeroContent() {
     const slides = [
     {
-        title: <>Vẻ đẹp vượt <br /><span className="text-primary">THỜI GIAN</span></>,
+        title: <div>Vẻ đẹp vượt <br /><span className="text-primary">THỜI GIAN</span></div  >,
         desc: "Thiết kế tinh xảo, chất liệu cao cấp và độ chính xác tuyệt đối...",
         img: "./backgroundsang.png",
         background:"./OrientBack.webp"
     },
     {
-        title: <>Đẳng cấp từ <br /><span className="text-primary">THƯƠNG HIỆU LỚN</span></>,
+        title: <div style={{color: `#000000`}}>Đẳng cấp từ <br /><span style={{color:`#ffb300`}} className="text-primary">THƯƠNG HIỆU LỚN</span></div>,
         desc: "Những mẫu đồng hồ mang dấu ấn huyền thoại trong ngành chế tác...",
         img: "./rolex-logo.png",
-        background:"./final.png "
+        background:"./RolexBack.png "
 
     },
     {
-        title: <>Khoảnh khắc <br /><span className="text-primary">TRỌN VẸN</span></>,
+        title: <div>Khoảnh khắc <br /><span className="text-primary">TRỌN VẸN</span></div>,
         desc: "Trải nghiệm đỉnh cao dành cho người đi đầu xu hướng...",
         img: "./casiologo.png",
         background:"./casioBack.avif"
@@ -27,7 +27,7 @@ export function HeroContent() {
     useEffect(() => {
         const timer = setInterval(() => {
         setIndex((prev) => (prev + 1) % slides.length);
-        }, 4000);
+        }, 6000);
         return () => clearInterval(timer);
     }, []);
     

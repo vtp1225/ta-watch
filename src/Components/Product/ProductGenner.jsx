@@ -1,17 +1,9 @@
 import { useNavigate } from "react-router";
 import { useCart } from "../../Context/CartContext";
-export function addToWishlist(productId) {
-    console.log('Added to wishlist:', productId);
-    // Add wishlist functionality here
-    
-    showNotification('Added to wishlist!');
-}
-export function addedButtonEffect(button) {
-    button.classList.add('product-action-btn-clicked');
-}
+
+
 export function quickView(productId) {
     console.log('Quick view for product ID:', productId);
-    showNotification('Quick view feature coming soon!');
 }
 export function showNotification(message) {
     // Simple notification
@@ -42,21 +34,30 @@ export function showNotification(message) {
 export function ProductGenner({product,stars})
 {
     const {  addToCart } = useCart();
-    function addedToCart(productId) {
-        addToCart({ ...product });
-        console.log('Added to cart:', productId);
-        // Add cart functionality here
-        
-        showNotification('Added to cart!');
-}
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+        showNotification('Đã thêm vào giỏ hàng!');
+        e.stopPropagation();
+        addToCart(product);
+    };
+    const addToWishlist = (e, productId) => {
+        e.currentTarget.classList.toggle('product-action-btn-clicked');
+        if (e.currentTarget.classList.contains('product-action-btn-clicked')) {
+        showNotification('Đã thêm vào yêu thích!');
+        } else {
+        showNotification('Đã xóa khỏi yêu thích!');
+        }   
+        e.stopPropagation();
+        console.log('Add to wishlist product ID:', productId);
+    }
 const navigate = useNavigate();
     const  discountedPrice = product.isSale ? (((product.originalPrice - product.price)/product.originalPrice) * 100).toFixed(1) : 0;
     return (
       <>
 
-      <div key={product.id} onClick={() => navigate(`/product/${product.id}`)} className="product-card fade-in">
+      <div key={product.id}   onClick={() => navigate(`/product/${product.id}`)}  className="product-card fade-in">
                                 <div className="product-image-container">
-                                    <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
+                                    <img src={product.images[0]} alt={product.name} className="product-image" loading="lazy" />
                                 
                                     <div className="product-badges">
                                         {product.isNew ? <span className="product-badge badge-new">New</span> : ''}
@@ -67,22 +68,23 @@ const navigate = useNavigate();
                                         <button
                                             className="product-action-btn"
                                             onClick={(e) => {
-                                                addedButtonEffect(e.currentTarget);
-                                                addToWishlist(product.id);
+                                                addToWishlist(e, product.id);
                                             }}
                                             title="Add to Wishlist"
                                         >
                                             <i className="far fa-heart"></i>
                                         </button>
-                                         <button className="product-action-btn" onClick={() => quickView(product.id)} title="Quick View">
+                                         <button className="product-action-btn" 
+                            
+                                          title="Xem Chi Tiết">
                                              <i className="far fa-eye"></i>
                                          </button>
                                     </div>
 
                                     <div className="add-to-cart-overlay">
-                                        <button className="add-to-cart-btn" onClick={() => { addedToCart(product.id); }} title="Add to Cart">
+                                        <button className="add-to-cart-btn" onClick={handleAddToCart} title="Thêm vào giỏ hàng">
                                             <i className="fas fa-shopping-cart"></i>
-                                            Add to Cart
+                                            Thêm vào giỏ hàng
                                         </button>
                                     </div>
                                 </div>

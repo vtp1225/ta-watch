@@ -20,7 +20,9 @@
         "color": "Silver",
         "price": 2499,
         "originalPrice": 2999,
-        "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080"
+        ],
         "description": "A classic chronograph watch combining timeless design with precision engineering.",
         "category": "Luxury",
         "isNew": false,
@@ -46,7 +48,9 @@
         "color": "Black",
         "price": 1299,
         "originalPrice": null,
-        "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080"
+        ],
         "description": "A high-performance sport watch built for active lifestyles with precision quartz movement.",
         "category": "Sport",
         "isNew": true,
@@ -72,7 +76,9 @@
         "color": "Brown",
         "price": 3999,
         "originalPrice": null,
-        "image": "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080"
+        ],
         "description": "A refined timepiece inspired by heritage craftsmanship, offering timeless beauty and precision.",
         "category": "Luxury",
         "isNew": false,
@@ -98,7 +104,9 @@
         "color": "Black",
         "price": 799,
         "originalPrice": 999,
-        "image": "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080"
+        ],
         "description": "A smart companion designed for everyday convenience with health tracking and connectivity.",
         "category": "Smart",
         "isNew": true,
@@ -124,7 +132,9 @@
         "color": "Brown",
         "price": 1899,
         "originalPrice": null,
-        "image": "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080"
+        ],
         "description": "Classic design with vintage charm, featuring an automatic movement and durable leather strap.",
         "category": "Vintage",
         "isNew": false,
@@ -150,7 +160,9 @@
         "color": "Gold",
         "price": 5999,
         "originalPrice": 6999,
-        "image": "https://images.unsplash.com/photo-1704783508626-b5359276703b?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1704783508626-b5359276703b?auto=format&q=80&w=1080"
+        ],
         "description": "An elegant gold timepiece with exquisite craftsmanship and luxurious automatic movement.",
         "category": "Gold",
         "isNew": false,
@@ -176,7 +188,9 @@
         "color": "Blue",
         "price": 1599,
         "originalPrice": null,
-        "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080"
+        ],
         "description": "A durable and stylish sport watch built for urban adventurers and everyday wear.",
         "category": "Sport",
         "isNew": true,
@@ -202,7 +216,9 @@
         "color": "Black",
         "price": 2299,
         "originalPrice": 2599,
-        "image": "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080",
+        "images": [
+          "https://images.unsplash.com/photo-1705002599941-face1aaef451?auto=format&q=80&w=1080"
+        ],
         "description": "Elegant craftsmanship with a vintage touch, featuring automatic movement and sapphire glass.",
         "category": "Vintage",
         "isNew": false,
@@ -216,33 +232,18 @@
   "cart": {
     "items": [
       {
-        "id": "2",
-        "name": "Sport Performance Pro",
-        "brand": "ActiveTime",
-        "price": 1299,
-        "image": "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080",
-        "quantity": 16
-      },
-      {
-        "id": "1",
-        "name": "Classic Chronograph Elite",
-        "brand": "TimeMaster",
-        "price": 2499,
-        "image": "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
-        "quantity": 1
-      },
-      {
-        "id": "3",
-        "name": "Elegant Heritage Collection",
-        "brand": "LuxuryTime",
-        "price": 3999,
-        "image": "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080",
+        "id": "4",
+        "name": "Smart Connect Pro",
+        "brand": "TechTime",
+        "price": 799,
+        "images": [
+          "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080"
+        ],
         "quantity": 1
       }
     ],
-    "totalQuantity": 18,
-    "totalPrice": 27282,
-    "updatedAt": "2025-11-01T09:47:18.118Z"
+    "totalQuantity": 1,
+    "totalPrice": 799
   },
   "users": {
     "users": [

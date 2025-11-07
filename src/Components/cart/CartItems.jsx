@@ -4,7 +4,7 @@ export function CartItems({ items, onUpdateQuantity, onRemoveItem }) {
         <>
         {items.map((item) => (
                             <div className="cart-item" key={item.id}>
-                                <img src={item.image} alt={item.name} key={item.id} className="cart-item-image" />
+                                <img src={item.images[0]} alt={item.name} key={item.id} className="cart-item-image" />
                                 <div className="cart-item-info">
                                     <div className="cart-item-name">{item.name}</div>
                                     <div className="cart-item-brand">{item.brand}</div>
