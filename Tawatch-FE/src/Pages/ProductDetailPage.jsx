@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router";
-import Gallery from "../Components/Productdetail/Gallery";
-import ProductInfo from "../Components/Productdetail/ProductInfo";
+import Gallery from "../Components/Productdetail/Gallery.jsx";
+import ProductInfo from "../Components/Productdetail/ProductInfo.jsx";
 import { useProducts } from "../Context/ProductContext.jsx";
 import styles from '../styles/productdetail.module.css';
 import { Header } from "../Components/Header.jsx";
