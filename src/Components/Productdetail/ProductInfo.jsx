@@ -3,6 +3,12 @@ import {StrapMaterialSelector} from "./StrapMaterialSelector.jsx";
 import {QuantityPicker} from "./QuantityPicker.jsx";
 import styles from '../../styles/productdetail.module.css';
 export default function ProductInfo({ product }) {
+  const colors = [
+    { name: 'Black', hex: '#000000' },
+    { name: 'Silver', hex: '#C0C0C0' },
+    { name: 'Gold', hex: '#FFD700' },
+    { name: 'Brown', hex: '#8B4513' },
+  ];
   return (
     <div className={styles.details}>
       <span className={styles.badge}>New Arrival</span>
@@ -18,7 +24,7 @@ export default function ProductInfo({ product }) {
         {product.description}
       </p>
 
-      <ColorSwatches />
+      <ColorSwatches colors={colors} />
       <StrapMaterialSelector />
       <QuantityPicker />
 

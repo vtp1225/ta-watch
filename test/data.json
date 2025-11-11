@@ -21,7 +21,9 @@
         "price": 2499,
         "originalPrice": 2999,
         "images": [
-          "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080"
+          "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
+          "https://images.unsplash.com/photo-1708551452682-3f969fb4b38f?auto=format&q=80&w=1080",
+          "https://imgs.search.brave.com/3Hrp2wpXu5Prsjojmhyh0DQqq79oBJv2ZRphzz8mUuU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMjEy/MzE4NTgyMi92aS9h/bmgvbSVFMSVCQiU5/OXQtbmclQzYlQjAl/RTElQkIlOURpLSVD/NCU5MSVDMyVBMG4t/JUMzJUI0bmcta2kl/RTElQkIlODNtLXRy/YS1jJUUxJUJBJUFE/bi1jJUUxJUJBJUEz/bmgtJUM0JTkxJUUx/JUJCJTkzbmctaCVF/MSVCQiU5My0lQzQl/OTFlby10YXkuanBn/P2I9MSZzPTYxMng2/MTImdz0wJms9MjAm/Yz1Bak1fX29wcUNF/Z1c3ZDdHNExYSlJ2/RVRRaDVPX09wQ3Vm/Rm9QYUQzeTd3PQ"
         ],
         "description": "A classic chronograph watch combining timeless design with precision engineering.",
         "category": "Luxury",
@@ -239,11 +241,21 @@
         "images": [
           "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080"
         ],
-        "quantity": 1
+        "quantity": 11
+      },
+      {
+        "id": "3",
+        "name": "Elegant Heritage Collection",
+        "brand": "LuxuryTime",
+        "price": 3999,
+        "images": [
+          "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080"
+        ],
+        "quantity": 11
       }
     ],
-    "totalQuantity": 1,
-    "totalPrice": 799
+    "totalQuantity": 22,
+    "totalPrice": 52778
   },
   "users": {
     "users": [

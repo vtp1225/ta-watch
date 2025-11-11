@@ -1,13 +1,32 @@
 import styles from '../../styles/productdetail.module.css';
 
-export  function ColorSwatches() {
+export  function ColorSwatches({colors}) {
+  function handleSwatchClick(event) {
+    const selectedColor = event.target.getAttribute('data-color');
+    const swatchContainer = document.getElementById('swatches');
+    const swatches = swatchContainer.getElementsByClassName(styles.swatch);
+    const colorname = swatchContainer.previousSibling.querySelector('strong');
+    colorname.textContent = selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1);
+    for (let swatch of swatches) {
+      swatch.classList.remove(styles.selected);
+      if (swatch.getAttribute('data-color') === selectedColor) {
+        swatch.classList.add(styles.selected);
+      }
+    }
+  }
   return (
     <>
-      <div className={styles.optionTitle}>Color: <strong style={{ marginLeft: '8px', fontWeight: 500, color: 'var(--muted)' }}>Black</strong></div>
+      <div className={styles.optionTitle}>Color: <strong style={{ marginLeft: '8px', fontWeight: 500, color: 'var(--muted)' }}>{colors[0].name}</strong></div>
       <div className={styles.swatches} id="swatches">
-        <div className={`${styles.swatch} ${styles.selected}`} data-color="black" style={{ background: '#000' }}></div>
-        <div className={styles.swatch} data-color="silver" style={{ background: '#d9d9dd' }}></div>
-        <div className={styles.swatch} data-color="gold" style={{ background: '#cf9a00' }}></div>
+            {colors.map((color, index) => (
+              <div
+                onClick={handleSwatchClick}
+                key={index}
+                className={`${styles.swatch} ${index === 0 ? styles.selected : ''}`}
+                data-color={color.name.toLowerCase()}
+                style={{ background: color.hex }}
+              ></div>
+            ))}
       </div>
     </>
   );

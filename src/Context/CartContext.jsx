@@ -23,7 +23,7 @@ export function CartProvider({ children }) {
       if (productInCart) {
         productInCart.quantity += 1;
       } else {
-        const newProduct = { id: product.id, name: product.name, brand: product.brand, price: product.price, image: product.image, quantity: 1 };
+        const newProduct = { id: product.id, name: product.name, brand: product.brand, price: product.price, images: product.images, quantity: 1 };
         items.push(newProduct);
       }
       const totalQuantity = items.reduce((acc, item) => acc + item.quantity, 0);
