@@ -1,0 +1,36 @@
+.sidebar {
+  width: 230px;
+  background-color: #0b1437;
+  color: #fff;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.icon {
+  background: white;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.logo h2 { font-size: 18px; }
+.logo p { font-size: 12px; color: #bbb; }
+
+.menu { list-style: none; }
+.menu li {
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #c3c6d1;
+}
+.menu li:hover, .active { background-color: #1c2757; color: white; }

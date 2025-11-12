@@ -1,0 +1,16 @@
+.bestsellers {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.bestsellers ul { list-style: none; margin-top: 10px; }
+.bestsellers li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.productName { font-weight: 600; }
+.price { font-weight: 700; }
