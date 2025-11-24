@@ -11,15 +11,14 @@ export function HeroContent() {
         title: <div style={{color: `#000000`}}>Đẳng cấp từ <br /><span style={{color:`#ffb300`}} className="text-primary">THƯƠNG HIỆU LỚN</span></div>,
         desc: "Những mẫu đồng hồ mang dấu ấn huyền thoại trong ngành chế tác...",
         img: "./rolex-logo.png",
-        background:"./RolexBack.png "
-
+        background:"./RolexBack.png ",
+        buttoncolor: "#2d2d2dff"
     },
     {
         title: <div>Khoảnh khắc <br /><span className="text-primary">TRỌN VẸN</span></div>,
         desc: "Trải nghiệm đỉnh cao dành cho người đi đầu xu hướng...",
         img: "./casiologo.png",
-        background:"./casioBack.avif"
-
+        background:"./casioBack.avif",
     }
 ];
     const [index, setIndex] = useState(0);
@@ -43,7 +42,7 @@ export function HeroContent() {
                 <p className="hero-description">{slide.desc}</p>
              <div className="hero-buttons"> 
                 <a href="#collections" className="btn btn-primary shopcollection-btn" >Shop Collection</a> 
-             <a href="#catalog" className="btn btn-outline viewcatalog-btn">View Catalog</a> </div>
+             <a href="#catalog" style={{ color: slide.buttoncolor }} className="btn btn-outline viewcatalog-btn">View Catalog</a> </div>
               </div>
             </div>
           </div>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Management</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #ffffff;
+      --panel-2: #f8fafc;
+      --border: #e6e9ee;
+      --text: #0f1722;
+      --muted: #000000;
+      --brand: #000000;
+      --accent: #2ea043;
+      --processing: #ffcf66;
+      --delivered: #16a34a;
+      --canceled: #ef4444;
+      --shipped: #3b82f6;
+      --chip-bg: rgba(15,23,34,0.03);
+      --chip-border: rgba(15,23,34,0.06);
+      --shadow: 0 8px 22px rgba(15,23,34,0.06);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .title .logo {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      box-shadow: 0 6px 18px rgba(76, 194, 255, 0.35);
+    }
+    .title h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0.3px;
+    }
+    .title p {
+      margin: 2px 0 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+      font-size: 14px;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: #2b3a4a; }
+    .btn.primary {
+      background: linear-gradient(135deg, #1f6feb, #2ea043);
+      border-color: transparent;
+      color: #e6e9ee;
+      box-shadow: 0 8px 22px rgba(31,111,235,.35);
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr auto;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .input, .select {
+      width: 100%;
+      padding: 11px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    .input::placeholder { color: #89a1b8; }
+    .input:focus, .select:focus {
+      border-color: #2b3a4a;
+      box-shadow: 0 0 0 3px rgba(76,194,255,0.15);
+    }
+
+    .card {
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.6));
+      border-bottom: 1px solid var(--border);
+    }
+    .card-header h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .card-header .mini {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+    thead th {
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+      font-size: 13px;
+      padding: 14px 16px;
+      background: rgba(15,23,34,0.03);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(6px);
+    }
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+    }
+    tbody tr:hover {
+      background: rgba(15,23,34,0.03);
+    }
+
+    .amount { color: #000000; font-weight: 600; }
+    .order-id { font-weight: 600; color: #000000; }
+    .product { color: #313131; }
+    .muted { color: var(--muted); }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--chip-border);
+      background: var(--chip-bg);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.05) inset;
+    }
+    .processing .dot { background: var(--processing); }
+    .delivered .dot  { background: var(--delivered); }
+    .canceled .dot   { background: var(--canceled); }
+    .shipped .dot    { background: var(--shipped); }
+
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-btn {
+      width: 36px; height: 36px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+    }
+    .icon-btn:hover { transform: translateY(-1px); border-color: #2b3a4a; }
+    .icon {
+      font-size: 17px; line-height: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+      .title h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="title">
+        <div>
+          <h1>Order management</h1>
+          <p>Quản lý và theo dõi đơn hàng thời gian thực</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn">Xuất file Excel</button>
+        <button class="btn">Làm mới</button>
+        <button class="btn primary">Tạo đơn hàng</button>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <input class="input" type="text" placeholder="Tìm theo Order ID, khách hàng, sản phẩm..." />
+      <select class="select">
+        <option>Tất cả trạng thái</option>
+        <option>Processing</option>
+        <option>Delivered</option>
+        <option>Shipped</option>
+        <option>Canceled</option>
+      </select>
+      <button class="btn">Lọc</button>
+    </div>
+
+    <!-- Table card -->
+    <div class="card">
+      <div class="card-header">
+        <h2>All orders</h2>
+        <span class="mini">Cập nhật lần cuối: hôm nay</span>
+      </div>
+
+      <div class="table-wrap">
+        <table aria-label="All Orders">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="order-id">#TA-2891</td>
+              <td>John Anderson</td>
+              <td class="product">Chronograph Elite</td>
+              <td>1</td>
+              <td class="amount">$250</td>
+              <td>
+                <span class="status processing"><span class="dot"></span>Processing</span>
+              </td>
+              <td class="muted">Nov 11, 2025 10:30 AM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2890</td>
+              <td>Sarah Miller</td>
+              <td class="product">Sport Diver Pro</td>
+              <td>1</td>
+              <td class="amount">$150</td>
+              <td>
+                <span class="status delivered"><span class="dot"></span>Delivered</span>
+              </td>
+              <td class="muted">Nov 11, 2025 09:15 AM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2889</td>
+              <td>Michael Chen</td>
+              <td class="product">Classic Leather</td>
+              <td>2</td>
+              <td class="amount">$300</td>
+              <td>
+                <span class="status processing"><span class="dot"></span>Processing</span>
+              </td>
+              <td class="muted">Nov 10, 2025 04:45 PM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2888</td>
+              <td>Emma Wilson</td>
+              <td class="product">Smart Connect</td>
+              <td>1</td>
+              <td class="amount">$150</td>
+              <td>
+                <span class="status delivered"><span class="dot"></span>Delivered</span>
+              </td>
+              <td class="muted">Nov 10, 2025 02:20 PM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2887</td>
+              <td>David Brown</td>
+              <td class="product">Chronograph Elite</td>
+              <td>1</td>
+              <td class="amount">$250</td>
+              <td>
+                <span class="status canceled"><span class="dot"></span>Canceled</span>
+              </td>
+              <td class="muted">Nov 9, 2025 11:00 AM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2886</td>
+              <td>Lisa Garcia</td>
+              <td class="product">Vintage Collection</td>
+              <td>1</td>
+              <td class="amount">$320</td>
+              <td>
+                <span class="status shipped"><span class="dot"></span>Shipped</span>
+              </td>
+              <td class="muted">Nov 9, 2025 09:30 AM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2885</td>
+              <td>James Wilson</td>
+              <td class="product">Sport Diver Pro</td>
+              <td>3</td>
+              <td class="amount">$450</td>
+              <td>
+                <span class="status processing"><span class="dot"></span>Processing</span>
+              </td>
+              <td class="muted">Nov 8, 2025 03:15 PM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+            <tr>
+              <td class="order-id">#TA-2884</td>
+              <td>Maria Rodriguez</td>
+              <td class="product">Classic Leather</td>
+              <td>1</td>
+              <td class="amount">$150</td>
+              <td>
+                <span class="status delivered"><span class="dot"></span>Delivered</span>
+              </td>
+              <td class="muted">Nov 8, 2025 01:45 PM</td>
+              <td class="actions-cell">
+                <button class="icon-btn" title="Xem"><span class="icon">👁️</span></button>
+                <button class="icon-btn" title="In"><span class="icon">🖨️</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

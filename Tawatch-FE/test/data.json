@@ -234,28 +234,18 @@
   "cart": {
     "items": [
       {
-        "id": "4",
-        "name": "Smart Connect Pro",
-        "brand": "TechTime",
-        "price": 799,
+        "id": "2",
+        "name": "Sport Performance Pro",
+        "brand": "ActiveTime",
+        "price": 1299,
         "images": [
-          "https://images.unsplash.com/photo-1745256375848-1d599594635d?auto=format&q=80&w=1080"
+          "https://images.unsplash.com/photo-1758193605669-411b2e461672?auto=format&q=80&w=1080"
         ],
-        "quantity": 11
-      },
-      {
-        "id": "3",
-        "name": "Elegant Heritage Collection",
-        "brand": "LuxuryTime",
-        "price": 3999,
-        "images": [
-          "https://images.unsplash.com/photo-1730757679771-b53e798846cf?auto=format&q=80&w=1080"
-        ],
-        "quantity": 11
+        "quantity": 1
       }
     ],
-    "totalQuantity": 22,
-    "totalPrice": 52778
+    "totalQuantity": 1,
+    "totalPrice": 1299
   },
   "users": {
     "users": [

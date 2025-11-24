@@ -1,0 +1,231 @@
+/* ========== GLOBAL ========== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: #1d1d1f;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Times New Roman", serif;
+  font-weight: 500;
+}
+
+section {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 0;
+}
+
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #8d8d8d;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.btn {
+  padding: 12px 26px;
+  border: 1px solid #000;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn.primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: .7;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 60px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 {
+  font-size: 54px;
+  margin: 10px 0 20px;
+}
+
+.hero-text p {
+  color: #555;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-img img {
+  width: 420px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ========== HERITAGE ========== */
+.heritage h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 40px;
+}
+
+.heritage-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ========== CORE VALUES ========== */
+.values h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.value-item h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ========== MILESTONES ========== */
+.milestones h2 {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  border-left: 2px solid #e0e0e0;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+.year-block {
+  margin-bottom: 30px;
+}
+
+.year {
+  font-size: 28px;
+  color: #999;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.milestone-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.milestone-images img {
+  width: 100%;
+  border-radius: 10px;
+  height: 190px;
+  object-fit: cover;
+}
+
+/* ========== VISIT SECTION ========== */
+.visit {
+  text-align: center;
+}
+
+.visit h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.visit p {
+  width: 60%;
+  margin: 0 auto 30px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  background: #f8f8f8;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+}
+
+.footer-locations {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.footer-locations h4 {
+  margin-bottom: 5px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.footer-links p,
+.footer-contact p {
+  color: #555;
+  margin: 4px 0;
+}
+
+.footer-brand p {
+  color: #666;
+  width: 70%;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-top: 20px;
+}

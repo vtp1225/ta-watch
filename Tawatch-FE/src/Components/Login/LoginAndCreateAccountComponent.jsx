@@ -17,19 +17,44 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
     }
     function handleSubmit(event) {
         event.preventDefault();
-        const form = event.target.closest("form");
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        axiosClient.post("/users", data)
-            .then((response) => {
-                console.log("Account created successfully:", response.data);
-                alert("Account created successfully!");
-                setIsLogin(true);
-            })
-            .catch((error) => {
-                console.error("Error creating account:", error);
-                alert("Error creating account. Please try again.");
-            });
+        const form = event.target;
+        if (isLogin) {
+            const email = form.elements[0].value;
+            const password = form.elements[1].value;
+            axiosClient.post("/auth/login", { email, password })
+                .then((response) => {
+                    console.log("Login successful:", response.data);
+                })
+                .catch((error) => {
+                    console.error("Login error:", error);
+                });
+        } else {
+            const firstname = form.elements['firstname'].value;
+            const lastname = form.elements['lastname'].value;
+            const email = form.elements['email'].value;
+            const password = form.elements['password'].value;
+            const confirmPassword = form.elements['confirmPassword'].value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+            axiosClient.post("/auth/register", { firstname, lastname, email, password })
+                .then((response) => {
+                    console.log("Account created successfully:", response.data);
+                })
+                .catch((error) => {
+                    console.error("Account creation error:", error);
+                });
+        }
+    }
+    const changeTypePassword = () =>{
+        const passwordInput = document.querySelector(`.${styles.passwordField} input`);
+        
+        if(passwordInput.type === "password"){
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
     }
     return (
         <>
@@ -62,14 +87,14 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
                             <button className={`${styles.tab} ${!isLogin ? styles.active : ""}`} onClick={(event) => handleTabClick(event)}>Create Account</button>
                         </div>
                         {isLogin ? (
-                            <form>
+                            <form onSubmit={handleSubmit}> 
                                 <label>Email</label>
                                 <input type="email" placeholder="you@example.com" required />
 
                             <label>Password</label>
                             <div className={styles.passwordField}>
                                 <input type="password" placeholder="••••••••" required />
-                                <span className={styles.eye}>👁</span>
+                                <span onClick={changeTypePassword} className={styles.eye}>👁</span>
                             </div>
 
                             <div className={styles.options}>
@@ -94,12 +119,12 @@ export function LoginAndCreateAccountComponent({isLogin, setIsLogin}) {
                             <label>Password</label>
                             <div className={styles.passwordField}>
                                 <input name="password" type="password" placeholder="••••••••" required />
-                                <span className={styles.eye}>👁</span>
+                                <span onClick={changeTypePassword} className={styles.eye}>👁</span>
                             </div>
                             <label>Confirm Password</label>
                             <div className={styles.passwordField}>
                                 <input name="confirmPassword" type="password" placeholder="••••••••" required />
-                                <span className={styles.eye}>👁</span>
+                                <span onClick={changeTypePassword} className={styles.eye}>👁</span>
                             </div>
                
 
